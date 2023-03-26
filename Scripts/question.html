@@ -380,6 +380,22 @@
               Q45a.style.display="none";
             }
           }
+          
+          function display11(x){
+            var check = document.getElementById(x);
+            if (check.checked) {
+              Q47q.style.display="inline";
+              Q47a.style.display="inline";
+            }
+          }
+        
+          function disappear11(x){
+            var check = document.getElementById(x);
+            if (check.checked) {
+              Q47q.style.display="none";
+              Q47a.style.display="none";
+            }
+          }
         </script>
       
         <label for="Q43">Does this course use any textbook?
@@ -468,21 +484,6 @@
                 
     <!--Course schedule table-->
     <h1>Course Schedule</h1>
-    <!--<p><b>Is this course in the Fall or Spring?</b></p>
-
-    <label for="semester">Select Semester:</label>
-    <input type="radio" id="fall" name="semester" value="fall">
-    <label for="fall">Fall</label>
-    <input type="radio" id="spring" name="semester" value="spring">
-    <label for="fall">Spring</label>
-  <p></p>
-    <label for="days">Select Class Days:</label>
-    <input type="radio" id="mon-wed" name="days" value="mon-wed">
-    <label for="mon-wed">Monday & Wednesday</label>
-    <input type="radio" id="mon-fri" name="days" value="mon-fri">
-    <label for="mon-fri">Monday & Wednesday & Friday</label>
-    <input type="radio" id="tue-thu" name="days" value="tue-thu">
-    <label for="tue-thu">Tuesday & Thursday</label>-->
 
     <table id = "schedule">
         <thead>
