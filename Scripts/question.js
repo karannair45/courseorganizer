@@ -22,7 +22,7 @@ function addRow () {
     quizBox.setAttribute("name", "schedule[quiz]" + currentIndex);
 
     var examBox = document.createElement("input");
-    examBox.setAttribute("name", "schedule[exam" + currentIndex);
+    examBox.setAttribute("name", "schedule[exam]" + currentIndex);
 
     var currentCell = currentRow.insertCell(-1);
     currentCell.appendChild(dateBox);
