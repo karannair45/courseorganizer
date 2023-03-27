@@ -1,51 +1,43 @@
-function addRow () {
-    var myTable = document.getElementById("schedule");
-    var currentIndex = myTable.rows.length;
-    var currentRow = myTable.insertRow(-1);
+const table = document.getElementById("schedule");
+const radioNo = document.getElementById("check16");
 
-    var dateBox = document.createElement("input");
-    dateBox.setAttribute("name", "schedule[date]" + currentIndex);
+function addRow() {
+    var date = document.getElementById("date").value;
+    var topic = document.getElementById("topic").value;
+    var assignment = document.getElementById("assignment").value;
+    var lab = document.getElementById("lab").value;
+    var discussion = document.getElementById("discussion").value;
+    var quiz = document.getElementById("quiz").value;
+    var exam = document.getElementById("exam").value;
 
-    var topicBox = document.createElement("input");
-    topicBox.setAttribute("name", "schedule[topic]" + currentIndex);
+    var table = document.getElementById("schedule");
+    var row = table.insertRow(-1);
 
-    var assignmentBox = document.createElement("input");
-    assignmentBox.setAttribute("name", "schedule[assignment]" + currentIndex);
-    
-    var labBox = document.createElement("input");
-    labBox.setAttribute("name", "schedule[lab]" + currentIndex);
-    
-    var discussionBox = document.createElement("input");
-    discussionBox.setAttribute("name", "schedule[discussion]" + currentIndex);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    var cell5 = row.insertCell(4);
+    var cell6 = row.insertCell(5);
+    var cell7 = row.insertCell(6);
 
-    var quizBox = document.createElement("input");
-    quizBox.setAttribute("name", "schedule[quiz]" + currentIndex);
-
-    var examBox = document.createElement("input");
-    examBox.setAttribute("name", "schedule[exam]" + currentIndex);
-
-    var currentCell = currentRow.insertCell(-1);
-    currentCell.appendChild(dateBox);
-
-    currentCell = currentRow.insertCell(-1);
-    currentCell.appendChild(topicBox);
-
-    currentCell = currentRow.insertCell(-1);
-    currentCell.appendChild(assignmentBox);
-
-    currentCell = currentRow.insertCell(-1);
-    currentCell.appendChild(labBox);
-
-    currentCell = currentRow.insertCell(-1);
-    currentCell.appendChild(discussionBox);
-
-    currentCell = currentRow.insertCell(-1);
-    currentCell.appendChild(quizBox);
-
-    currentCell = currentRow.insertCell(-1);
-    currentCell.appendChild(examBox);
-}
+    cell1.innerHTML = date;
+    cell2.innerHTML = topic;
+    cell3.innerHTML = assignment;
+    cell4.innerHTML = lab;
+    cell5.innerHTML = discussion;
+    cell6.innerHTML = quiz;
+    cell7.innerHTML = exam;
+  }
 
 function removeRow() {
     document.getElementById("schedule").deleteRow(-1);
 }
+
+radioNo.addEventListener("click", () => {
+  const columnIndexToRemove = 6;
+
+  for (let i = 0; i < table.rows.length; i++) {
+    table.rows[i].deleteCell(columnIndexToRemove);
+  }
+});
