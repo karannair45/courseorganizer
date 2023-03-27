@@ -15,6 +15,7 @@
         }
         </style>
     <script src="question.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   </head>
   <body>
     <h1>Website Questionnaire</h1>
@@ -323,7 +324,7 @@
 
       <label for="Q37">Does your course have exams?
         <input type="radio" id="check15" onclick="display8('check15')" name="Q37" value = "Yes">Yes 
-        <input type="radio" id="check16" onclick="disappear8('check16')" name="Q37" value = "No">No</label><br>
+        <input type="radio" id="check16" onclick="disappear8('check16')" name="Q37" value = "examNo">No</label><br>
   
       <p><label for="Q38" id = "Q38q">What is the exam policy?</label></p>
       <textarea id = "Q38a" name="Q38" rows="4" cols="50" placeholder="Suggested format in paragraph form..."></textarea><br>
@@ -380,8 +381,8 @@
               Q45a.style.display="none";
             }
           }
-          
-          function display11(x){
+            
+            function display11(x){
             var check = document.getElementById(x);
             if (check.checked) {
               Q47q.style.display="inline";
@@ -482,34 +483,51 @@
                 <textarea name="Q56" rows="4" cols="50" placeholder="Suggested format in paragraph form..." required></textarea><br>
 
                 
-    <!--Course schedule table-->
+    <!-- Course schedule table-->
+
     <h1>Course Schedule</h1>
 
-    <table id = "schedule">
-        <thead>
+    <form>
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date"><br><br>
+
+      <label for="topic">Topic:</label>
+      <input type="text" id="topic" name="topic"><br><br>
+
+      <label for="assignment">Assignment on this date?:</label>
+      <input type="text" id="assignment" name="assignment"><br><br>
+
+      <label for="lab">Lab:</label>
+      <input type="text" id="lab" name="lab"><br><br>
+
+      <label for="discussion">Discussion on this date?:</label>
+      <input type="text" id="discussion" name="discussion"><br><br>
+
+      <label for="quiz">Quiz on this date?:</label>
+      <input type="text" id="quiz" name="quiz"><br><br>
+
+      <label for="exam">Exam on this date?:</label>
+      <input type="text" id="exam" name="exam"><br><br>
+
+      <button type="button" onclick="addRow()">Add to Table</button>
+    </form>
+    <br><br>
+    <table id="schedule">
+      <thead>
         <tr>
-            <th>Date</th>
-            <th>Topic</th>
-            <th>Assignment Due</th>
-            <th>Lab Due</th>
-            <th>Discussion</th>
-            <th>Quiz</th>
-            <th>Exam</th>
+          <th>Date</th>
+          <th>Topic</th>
+          <th>Assignment Due</th>
+          <th>Lab Due</th>
+          <th>Discussion</th>
+          <th>Quiz</th>
+          <th>Exam</th>
         </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th><input name="schedule[date]"></th>
-                <th><input name="schedule[topic]"></th>
-                <th><input name="schedule[assignment]"></th>
-                <th><input name="schedule[lab]"></th>
-                <th><input name="schedule[discussion]"></th>
-                <th><input name="schedule[quiz]"></th>
-                <th><input name="schedule[exam]"></th>
-            </tr>
-        </tbody>
+      </thead>
+      <tbody>
+      </tbody>
     </table>
-    <input type="button" onclick="addRow()" value="Add row">
+
     <input type="button" onclick="removeRow()" value="Remove row">
 
     <p><b>Click Submit when you are done!</b></p>
