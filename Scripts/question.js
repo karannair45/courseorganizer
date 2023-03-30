@@ -28,6 +28,14 @@ function addRow() {
     cell5.innerHTML = discussion;
     cell6.innerHTML = quiz;
     cell7.innerHTML = exam;
+    
+    document.getElementById("date").value = "";
+    document.getElementById("topic").value = "";
+    document.getElementById("assignment").value = "";
+    document.getElementById("lab").value = "";
+    document.getElementById("discussion").value= "";
+    document.getElementById("quiz").value= "";
+    document.getElementById("exam").value= "";
   }
 
 function removeRow() {
