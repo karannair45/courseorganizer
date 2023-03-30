@@ -1,5 +1,14 @@
 const table = document.getElementById("schedule");
 const radioNo = document.getElementById("check16");
+//columns of the table
+const col1 = [];
+const col2 = [];
+const col3 = [];
+const col4 = [];
+const col5 = [];
+const col6 = [];
+const col7 = [];
+
 
 function addRow() {
     var date = document.getElementById("date").value;
@@ -12,6 +21,15 @@ function addRow() {
 
     var table = document.getElementById("schedule");
     var row = table.insertRow(-1);
+
+    //push data into the array
+    col1.push(date);
+    col2.push(topic);
+    col3.push(assignment);
+    col4.push(lab);
+    col5.push(discussion);
+    col6.push(quiz);
+    col7.push(exam);
 
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
@@ -28,7 +46,7 @@ function addRow() {
     cell5.innerHTML = discussion;
     cell6.innerHTML = quiz;
     cell7.innerHTML = exam;
-    
+
     document.getElementById("date").value = "";
     document.getElementById("topic").value = "";
     document.getElementById("assignment").value = "";
