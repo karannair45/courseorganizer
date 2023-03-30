@@ -16,6 +16,7 @@
         </style>
     <script src="question.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="question.css">
   </head>
   <body>
     <h1>Website Questionnaire</h1>
@@ -137,7 +138,7 @@
             Q23a.style.display="inline";
             Q24q.style.display="inline";
             Q24a.style.display="inline";
-            labHeader.style.display = "table-cell";
+            schedule.classList.toggle("show4")
             lab.style.display = "block";
           }
         }
@@ -149,7 +150,7 @@
             Q23a.style.display="none";
             Q24q.style.display="none";
             Q24a.style.display="none";
-            labHeader.style.display = "none";
+            schedule.classList.toggle("hidie4")
             lab.style.display = "none";
           }
         }
@@ -178,6 +179,8 @@
             Q29a.style.display="inline";
             Q30q.style.display="inline";
             Q30a.style.display="inline";
+            schedule.classList.toggle("show5")
+            discussion.style.display = "block";
           }
         }
   
@@ -193,6 +196,8 @@
             Q29a.style.display="none";
             Q30q.style.display="none";
             Q30a.style.display="none";
+            schedule.classList.toggle("hide5")
+            discussion.style.display = "none";
           }
         }
       </script>
@@ -252,7 +257,7 @@
             Q32a.style.display="inline";
             Q33q.style.display="inline";
             Q33a.style.display="inline";
-            assignmentHeader.style.display = "table-cell";
+            schedule.classList.toggle("show3")
             assignment.style.display = "block";
           }
         }
@@ -264,7 +269,7 @@
             Q32a.style.display="none";
             Q33q.style.display="none";
             Q33a.style.display="none";
-            assignmentHeader.style.display = "none";
+            schedule.classList.toggle("hide3")
             assignment.style.display = "none";
           }
         }
@@ -288,8 +293,8 @@
             Q35a.style.display="inline";
             Q36q.style.display="inline";
             Q36a.style.display="inline";
-            quizHeader.style.display = "table-cell";
             quiz.style.display = "block";
+            schedule.classList.toggle("show6")
           }
         }
   
@@ -300,8 +305,8 @@
             Q35a.style.display="none";
             Q36q.style.display="none";
             Q36a.style.display="none";
-            quizHeader.style.display = "none";
             quiz.style.display = "none";
+            schedule.classList.toggle("hide6")
           }
         }
       </script>
@@ -324,8 +329,8 @@
             Q38a.style.display="inline";
             Q39q.style.display="inline";
             Q39a.style.display="inline";
-            examHeader.style.display = "table-cell";
             exam.style.display = "block";
+            schedule.classList.toggle("show7")
           }
         }
   
@@ -336,8 +341,8 @@
             Q38a.style.display="none";
             Q39q.style.display="none";
             Q39a.style.display="none";
-            examHeader.style.display = "none";
             exam.style.display = "none";
+            schedule.classList.toggle("hide7")
           }
         }
       </script>
