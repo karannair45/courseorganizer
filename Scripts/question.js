@@ -1,5 +1,5 @@
 const table = document.getElementById("schedule");
-const radioNo = document.getElementById("check16");
+
 //columns of the table
 const col1 = [];
 const col2 = [];
@@ -60,10 +60,9 @@ function removeRow() {
     document.getElementById("schedule").deleteRow(-1);
 }
 
-radioNo.addEventListener("click", () => {
-  const columnIndexToRemove = 6;
-
-  for (let i = 0; i < table.rows.length; i++) {
-    table.rows[i].deleteCell(columnIndexToRemove);
-  }
-});
+function toExcel(type){
+  var data = document.getElementById('schedule');
+  var excelFile = XLSX.utils.table_to_book(data, {sheet: "sheet1"});
+  XLSX.write(excelFile, { bookType: type, bookSST: true, type: 'base64' });
+  XLSX.writeFile(excelFile, 'schedule.' + type);
+ }
