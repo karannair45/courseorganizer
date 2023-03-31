@@ -14,9 +14,9 @@
           text-align: center;
         }
         </style>
-    <script src="question.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="question.css">
+    <script src="question.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
   </head>
   <body>
     <h1>Website Questionnaire</h1>
@@ -136,8 +136,6 @@
           if (check.checked) {
             Q23q.style.display="inline";
             Q23a.style.display="inline";
-            Q24q.style.display="inline";
-            Q24a.style.display="inline";
             schedule.classList.toggle("show4")
             lab.style.display = "block";
           }
@@ -148,8 +146,6 @@
           if (check.checked) {
             Q23q.style.display="none";
             Q23a.style.display="none";
-            Q24q.style.display="none";
-            Q24a.style.display="none";
             schedule.classList.toggle("hidie4")
             lab.style.display = "none";
           }
@@ -169,8 +165,6 @@
           if (check.checked) {
             Q26q.style.display="inline";
             Q26a.style.display="inline";
-            Q27q.style.display="inline";
-            Q27a.style.display="inline";
             Q28q.style.display="inline";
             Q29q.style.display="inline";
             Q29a.style.display="inline";
@@ -186,8 +180,6 @@
           if (check.checked) {
             Q26q.style.display="none";
             Q26a.style.display="none";
-            Q27q.style.display="none";
-            Q27a.style.display="none";
             Q28q.style.display="none";
             Q29q.style.display="none";
             Q29a.style.display="none";
@@ -249,8 +241,6 @@
           if (check.checked) {
             Q32q.style.display="inline";
             Q32a.style.display="inline";
-            Q33q.style.display="inline";
-            Q33a.style.display="inline";
             schedule.classList.toggle("show3")
             assignment.style.display = "block";
           }
@@ -261,8 +251,6 @@
           if (check.checked) {
             Q32q.style.display="none";
             Q32a.style.display="none";
-            Q33q.style.display="none";
-            Q33a.style.display="none";
             schedule.classList.toggle("hide3")
             assignment.style.display = "none";
           }
@@ -315,8 +303,6 @@
           if (check.checked) {
             Q38q.style.display="inline";
             Q38a.style.display="inline";
-            Q39q.style.display="inline";
-            Q39a.style.display="inline";
             exam.style.display = "block";
             schedule.classList.toggle("show7")
           }
@@ -327,8 +313,6 @@
           if (check.checked) {
             Q38q.style.display="none";
             Q38a.style.display="none";
-            Q39q.style.display="none";
-            Q39a.style.display="none";
             exam.style.display = "none";
             schedule.classList.toggle("hide7")
           }
@@ -498,8 +482,8 @@
     <h1>Course Schedule</h1>
 
     <form>
-      <label for="date">Date:</label>
-      <input type="date" id="date" name="date"><br><br>
+      <label for="date">Date (mm/dd/yyyy):</label>
+      <input type="text" id="date" name="date"><br><br>
 
       <label for="topic">Topic:</label>
       <input type="text" id="topic" name="topic"><br><br>
@@ -539,10 +523,12 @@
     </table>
 
     <input type="button" onclick="removeRow()" value="Remove row">
+    <input type="button" id="export" onclick="toExcel('xlsx')" value="Export to Excel">
 
     <p><b>Click Submit when you are done!</b></p>
-    <input type="submit" name="save" value="Submit">
+    <input type="submit" name="save" value="Submit" id = "saveBtn">
 
     </form>
+    
   </body>
 </html>
