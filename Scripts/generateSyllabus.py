@@ -34,26 +34,35 @@ title3_format = title3.paragraph_format
 title3_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
 records = [
-    ('Class Location: ' + answers[15], 'E-mail: ' + answers[11]),
-    ('Office location: ' + answers[21], 'Office hours: ' + answers[19]),
+    ('Class Location: ' + answers[15]), ('E-mail: ' + answers[11]),
+    ('Office location: ' + answers[21]), ('Office hours: ' + answers[19]),
     
 ]
 
 if (answers[14].upper() == 'YES'):
-    records.append(('Phone: ' + answers[9], ''))
+    records.append(('Phone: ' + answers[9]))
 if (answers[22].upper() == 'YES'):
-    records.append(('Discussion seminar time: ' + answers[49], 'Discussion Seminar location: ' + answers[51]))
+    records.append(('Discussion seminar time: ' + answers[49]), ('Discussion Seminar location: ' + answers[51]))
 if (answers[35].upper() == 'YES'):
-    records.append('Virtual office hours(Zoom)\nMeeting ID: '+ answers[37] + '\nPasscode: \n' + answers[39], '')
+    records.append(('Virtual office hours(Zoom)\nMeeting ID: '+ answers[37] + '\nPasscode: ' + answers[39]))
 
-table = document.add_table(rows=1, cols=2, style = "Table Grid")
-row = table.rows[0].cells
-row[0].text = 'Instructor: ' + answers[5]
-row[1].text = 'Class Time: ' + answers[17]
-for x, y in records:
-    row_cells = table.add_row().cells
-    row_cells[0].text = x
-    row_cells[1].text = y
+num_rows = (len(records) + 1) // 2
+table = document.add_table(rows=num_rows, cols=2, style = "Table Grid")
+header_row = table.rows[0].cells
+header_row[0].text = 'Instructor: ' + answers[5]
+header_row[1].text = 'Class Time: ' + answers[17]
+#for x, y in records:
+#    row_cells = table.add_row().cells
+#    row_cells[0].text = x
+#    row_cells[1].text = y
+
+for i in range(len(records)):
+    row_idx = (i + 1) // 2  # add 1 to account for header row
+    col_idx = (i + 1) % 2
+    if col_idx == 0:
+        col_idx = 2
+    cell = table.rows[row_idx].cells[col_idx - 1]
+    cell.text = records[i]
 
 paragraph2 = document.add_paragraph('\n')
 
