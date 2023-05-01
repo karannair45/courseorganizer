@@ -9,26 +9,12 @@ document = Document()
 section = document.sections[0]
 header = section.header
 
-# Load excel file
-xl = openpyxl.load_workbook('C:/Users/mahya/Desktop/Capstone/courseorganizer-main/Scripts/Website_Questionnaire_Form.xlsx')
-sheet = xl['Sheet1']
+f = open( "q&a.txt", "r")
+g = f.read()
+answers = [s.replace('"', '').replace("[", "").replace("]", "") for s in g.split(',')]
 
 # Load schedule excel
 df = pd.read_excel('C:/Users/mahya/Desktop/Capstone/courseorganizer-main/Scripts/test.xlsx', sheet_name='Sheet1')
-
-#columns and index
-letters = ["B", "C", "D", "E", "F", "G", "H","I", "J", "AL", "AV", "AW", "AX", "AY", "AU", "AT", "AN", "AO", "AP", 
-           "AQ", "AS", "AR", "AM", "AH", "AJ", "AK", "AI", "AB", "AC", "Y", "AD", "AE", "AF", "AA", "AG", "X", "W", 
-           "N", "Z", "O", "P", "R", "Q", "V", "S", "T", "U", "K", "L", "M", "AZ", "BA", "BB", "BC"]
-
-answers = []
-
-i = 0
-
-# Parse through worksheet to manipulate cells
-while i < len(letters):
-    answers.append(sheet[letters[i] + str(2)].value)
-    i+=1
 
 # Template of the syllabus
 paragraph = header.paragraphs[0]
